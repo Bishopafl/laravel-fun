@@ -10,13 +10,16 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
+    // Runs Schema class method to create the table name using the first parameter
+    // second parameter is a function that uses class Blueprint to create objects
+    // look up 'Dependancy Injection'
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password', 60);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -27,6 +30,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
+    // the down() drops the table.
     public function down()
     {
         Schema::drop('users');
