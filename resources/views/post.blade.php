@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.app')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('content')
 
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <!-- this is how you echo php variables -->
-                <h1>Post {{$id}} {{$name}} {{$quirk}}</h1>
-            </div>
-        </div>
-    </body>
-</html>
+    <h1>Posts Page {{$id}} {{$name}} {{$quirk}}</h1>
+
+@stop
