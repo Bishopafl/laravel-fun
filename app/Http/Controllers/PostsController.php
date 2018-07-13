@@ -87,7 +87,15 @@ class PostsController extends Controller
 
     // custom method for our Posts Controller
     public function contact() {
-    	return view('contact');
+
+    	// $people = ['Adam', 'Spiderman', 'Superman', 'Priscilla', 'Noah', 'Ava'];
+
+    	$people = [''];
+
+    	// array that passes values and returns to page
+    	return view('contact', compact('people'));
+
+
     }
 
     public function show_post($id, $name, $quirk) {
