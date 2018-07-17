@@ -1,4 +1,6 @@
 <?php
+// import class functionality from Post class and also the parent class
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -6,30 +8,87 @@
 |
 | Here is where you can register all of the routes for an application.
 | It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
+| and give it the controller to call when that URI is requested. */
+// BELOW IS WHAT A ROUTE IS
 // first parameter is where you wanna go,
 // // second parameter returns the view... could do other things
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 // Route::get('post/{id}/{name}/{quirk}', 'PostsController@show_post');
 
 
 
+
+
+
+
+
+
+
+
 // |--------------------------------------------------------------------------
-// | RAW SQL QUERIES EXAMPLES
+// | ELOQUENT OBJECT RELATIONAL MODEL (ORM)
+// | retrieving data using Eloquent
+// |--------------------------------------------------------------------------
+// ====================================================================================
+// find functionality using Eloquent in routes
+// import Post class using use App\Post; at top of document
+// can use as long as we import from model class
+// ====================================================================================
+// retrieve information from db using eloquent
+// and shows within a variable
+// |--------------------------------------------------------------------------
+// Route::get('/read', function() {
+// 	$posts = Post::all();
+// 	foreach ($posts as $post) {
+// 		return $post->title;
+// 	}
+// });
+// ====================================================================================
+// find by the ID in the db.
+// |--------------------------------------------------------------------------
+// Route::get('/find', function() {
+// 	$post = Post::find(2);
+// 	return $post->title;
+// });
+// ====================================================================================
+// Chaining functions to retrieve data from database
+// |--------------------------------------------------------------------------
+// Route::get('/findwhere', function() {
+// 	// chaining functionalities with Eloquent
+// 	$posts = Post::where('id', 3)->orderBy('id', 'desc')->take(1)->get();
+// 	return $posts;
+// });
+// ====================================================================================
+// Find or Fail, if can't find record, the application fails with this function
+// |--------------------------------------------------------------------------
+// Route::get('/findmore', function() {
+	// if it doesn't find, it shows failure message
+	// $posts = Post::findOrFail(1);
+	// return $posts;
+	// you can also search where a user count is less than 50 or fail if you can't find
+	// $posts = Post::where('users_count', '<', '50')->firstOrFail();
+	// return $posts;
+// });
+// ====================================================================================
+// INSERTING DATA USING ELOQUENT
+// |--------------------------------------------------------------------------
+
+
+
+
+
+
+// |--------------------------------------------------------------------------
+// | RAW SQL QUERIES EXAMPLES USING CRUD
 // |--------------------------------------------------------------------------
 
 // ====================================================================================
 // inserting data into the db 
 // |--------------------------------------------------------------------------
 // Route::get('/insert', function() {
-// 	DB::insert('insert into posts(title, content) values(?, ?)',['PHP with Laravel', 'PHP Laravel is the best thing that has happened to PHP']);
+// 	DB::insert('insert into posts(title, content) values(?, ?)',['another PHP laravel Example', 'This is another example of the cool stuff you can do']);
 // });
 // ====================================================================================
 // reading data from the db
@@ -56,19 +115,6 @@
 // 	$deleted = DB::delete('delete from posts where id = ?', [1]);
 // 	return $deleted;
 // });
-
-
-
-
-
-
-
-
-
-
-
-
-
 // |--------------------------------------------------------------------------
 // | ROUTE EXAMPLES
 // |--------------------------------------------------------------------------
