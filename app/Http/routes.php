@@ -74,12 +74,93 @@ use App\Post;
 // ====================================================================================
 // INSERTING DATA USING ELOQUENT
 // |--------------------------------------------------------------------------
+// Route examples for inserting data
+// Route::get('/basicinsert', function() {
+// 	// instatiate new post class
+// 	$post = new Post;
+// 	$post->title = 'New Eloquent ORM title';
+// 	$post->content = 'Wow, Eloquent is really cool.  Look at this cool content.';
+// 	// inserts and updates record!
+// 	// Adds timestamps!
+// 	$post->save();
+// });
+// ====================================================================================
+// FINDING DATA IN THE DATABASE AND UPDATING IT
+// |--------------------------------------------------------------------------
+// Route::get('/basicinsert2', function() {
+// 	// instatiate new post class
+// 	$post = Post::find(2);
+// 	$post->title = 'New Eloquent ORM title 2';
+// 	$post->content = 'Wow, Eloquent is really cool.  Look at this cool content.Number two!';
+// 	// inserts and updates record!
+// 	// Adds timestamps!
+// 	$post->save();
+// });
+// ====================================================================================
+// CREATE METHOD -> THIS FUNCTIONALITY WORKS GOOD WITH FORMS
+// |--------------------------------------------------------------------------
+// can't do it like this yet. It doesn't know if it is safe data to insert into the database
+// You have to tell the Post class that those two
+// variables, title and content, are safe to modify... see Post.php
+// |--------------------------------------------------------------------------
+// Route::get('/create', function() {
+// 	Post::create(['title' => 'the third create method', 'content' => 'Third post. Wow I am learning a lot with Laravel']);
+// });
+// ====================================================================================
+// UPDATE METHOD USING ELOQUENT
+// |--------------------------------------------------------------------------
+// Route::get('/update', function() {
+// 	// put an array in update()
+// 	Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'New PHP title', 'content' => 'I love doing PHP work in Laravel!!']);
+// });
+// ====================================================================================
+// DELETE METHOD USING ELOQUENT
+// |--------------------------------------------------------------------------
+// Route::get('/delete', function() {
+// 	$post =  Post::find(2);
+// 	$post->delete();
+// });
+// ====================================================================================
+// DELETE MULTIPLE RECORDS AND WITHIN STATEMENTS
+// |--------------------------------------------------------------------------
+// Route::get('/delete2', function() {
+	// to delete existing model and you know the key you can use destroy
+	// Post::destroy(3);
+	// you want to delete multiple records??
+	// Post::destroy([4,5]);
+	// you can delete within a statement too!
+	// Post::where('is_admin', 0)->delete();
+// });
+// ====================================================================================
+// DELETE RECORD AND PUT IT IN A TRASH BIN
+// PUTS A TIMESTAMP ON THE RECORD, AND TELLS LARAVEL IT'S NOT DELETED YET
+	// if there are records that have the deleted_at timestamp, 
+	// you cannot see them in a find all!
+// |--------------------------------------------------------------------------
+// Route::get('/softdelete', function() {
+// 	Post::find(9)->delete();
+// });
+// |--------------------------------------------------------------------------
+// Route::get('/readsoftdelete', function() {
+	// $post = Post::find(7);
+	// return $post;
+	// read one post in the temp trash can
+	// $post = Post::withTrashed()->where('id', 8)->get();
+	// return $post;
+	// read all posts in the temp trash can
+	// $post = Post::onlyTrashed()->where('is_admin', 0)->get();
+	// return $post;
+// });
+// |--------------------------------------------------------------------------
+// | DELETES RECORD PERMANENTLY
+// | force delete when stuff is in the trash
+// |--------------------------------------------------------------------------
+// Route::get('/forcedelete', function() {
+// 	Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+// });
+// ====================================================================================
 
-
-
-
-
-
+// ====================================================================================
 // |--------------------------------------------------------------------------
 // | RAW SQL QUERIES EXAMPLES USING CRUD
 // |--------------------------------------------------------------------------
