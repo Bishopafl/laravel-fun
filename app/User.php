@@ -39,6 +39,11 @@ class User extends Authenticatable
     }
 
 
+    // many to many relationship using pivot tables
+    public function roles() {
+        return $this->belongsToMany('App\Role');
+    }
+
 
 
 

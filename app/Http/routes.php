@@ -52,6 +52,23 @@ use App\User;
 // 		echo $post->title . "<br>";
 // 	}
 // });
+// ====================================================================================
+// Many to Many relationships using Eloquent and using a pivot table
+// pivot table is a lookup table, use it to relate to other tables
+// laravel has specific conventions to use for this...
+// you can also do chaining to the relationships...
+// |--------------------------------------------------------------------------
+// Route::get('/user/{id}/role', function($id) {
+	// find user 1 and give me their roles
+	// $user = User::find(1)->roles;
+	// $user = User::find($id);
+	// foreach ($user->roles as $role) {
+	// 	return $role->name;
+	// }
+	// also find all users and the roles and using a method
+	// $user = User::find($id)->orderBy('id', 'desc')->get();
+	// return $user;
+// });
 
 
 // |--------------------------------------------------------------------------
