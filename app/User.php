@@ -32,6 +32,12 @@ class User extends Authenticatable
 
     }
 
+    // one to many relationships
+    public function posts() {
+
+        return $this->hasMany('App\Post');
+    }
+
 
 
 

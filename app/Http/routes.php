@@ -43,10 +43,15 @@ use App\User;
 // 	return Post::find($id)->user->name;
 // });
 // ====================================================================================
-// Inverse of One to One realtionships using Eloquent
-// instead of pulling the post, you can also pull the user!
+// One to Many relationships using Eloquent
 // |--------------------------------------------------------------------------
-
+// Route::get('/posts', function() {
+// 	$user = User::find(1);
+// 	foreach ($user->posts as $post) {
+// 		// using return only gives one value
+// 		echo $post->title . "<br>";
+// 	}
+// });
 
 
 // |--------------------------------------------------------------------------
