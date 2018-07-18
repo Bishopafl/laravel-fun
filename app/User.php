@@ -23,4 +23,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // Goes to post table, and look for column user ID by default
+    // if you want to specify different column, add second parameter
+    // like: return $this->hasOne('App\Post', 'the_user_id');
+    public function post() {
+        return $this->hasOne('App\Post');
+
+    }
+
+
+
+
+
+
+
 }

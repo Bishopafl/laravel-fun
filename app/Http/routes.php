@@ -1,6 +1,7 @@
 <?php
-// import class functionality from Post class and also the parent class
+// import class functionality classes and also the parent classes
 use App\Post;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -22,8 +23,29 @@ use App\Post;
 
 
 
-
-
+// |--------------------------------------------------------------------------
+// | ELOQUENT RELATIONSHIPS 
+// |--------------------------------------------------------------------------
+// ====================================================================================
+// One to One relationship using Eloquent
+// |--------------------------------------------------------------------------
+// Route::get('/user/{id}/post', function($id) {
+// 	// access information by chaining functionalities!
+// 	// you can also save it to your database! cool...
+// 	return User::find($id)->post->content;
+// });
+// ====================================================================================
+// Inverse of One to One realtionships using Eloquent
+// instead of pulling the post, you can also pull the user!
+// |--------------------------------------------------------------------------
+// Route::get('/post/{id}/user', function($id) {
+// 	// pull the user of whatever post id
+// 	return Post::find($id)->user->name;
+// });
+// ====================================================================================
+// Inverse of One to One realtionships using Eloquent
+// instead of pulling the post, you can also pull the user!
+// |--------------------------------------------------------------------------
 
 
 

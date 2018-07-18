@@ -20,10 +20,11 @@ class Post extends Model
     	// tells the code that it is safe to modify these columns in the database
     	'title',
     	'content'
-
-
-
-
     ];
+
+    public function user() {
+    	// get user for whatever post id you want!
+    	return $this->belongsTo('App\User');
+    }
 
 }
