@@ -1,5 +1,6 @@
 <?php
 // import class functionality classes and also the parent classes
+use App\Photo;
 use App\Country;
 use App\Post;
 use App\User;
@@ -107,6 +108,14 @@ use App\User;
 // 	foreach ($post->photos as $postPhoto) {
 // 		echo $postPhoto->path . "<br>";
 // 	}
+// });
+// ====================================================================================
+// find who the photo owner by id is
+// |--------------------------------------------------------------------------
+// Route::get('/photo/{id}/post', function($id) {
+// 	// throws 404 error if something fails
+// 	$photo = Photo::findOrFail($id);
+// 	return $photo->imageable;
 // });
 
 
