@@ -84,13 +84,30 @@ use App\User;
 // can do it through has many relationships 
 // a has many through relationship
 // |--------------------------------------------------------------------------
-Route::get('/user/country', function() {
-	$country = Country::find(2);
-	foreach ($country->posts as $post) {
-		return $post->content;
-	}
-});
-
+// Route::get('/user/country', function() {
+// 	$country = Country::find(2);
+// 	foreach ($country->posts as $post) {
+// 		return $post->content;
+// 	}
+// });
+// ====================================================================================
+// Polymorphic table relationships - X_x what?!
+// allow a model to belong to more than one other model in a single association
+// Users table and Posts table both can be related to one other table called photos
+// pretty interesting, not as daunting as it sounds
+// |--------------------------------------------------------------------------
+// Route::get('/user/photos', function() {
+// 	$user = User::find(1);
+// 	foreach ($user->photos as $photo) {
+// 		return $photo;
+// 	}
+// });
+// Route::get('/post/{id}/photos', function($id) {
+// 	$post = Post::find($id);
+// 	foreach ($post->photos as $postPhoto) {
+// 		echo $postPhoto->path . "<br>";
+// 	}
+// });
 
 
 
