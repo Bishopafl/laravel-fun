@@ -1,5 +1,6 @@
 <?php
 // import class functionality classes and also the parent classes
+use App\Country;
 use App\Post;
 use App\User;
 /*
@@ -72,13 +73,30 @@ use App\User;
 // ====================================================================================
 // Accessing the intermediate table / pivot table
 // |--------------------------------------------------------------------------
-Route::get('/user/pivot', function() {
-
-	
-
-
-
+// Route::get('/user/pivot', function() {
+// 	$user = User::find(1);
+// 	foreach ($user->roles as $role) {
+// 		return $role->pivot->created_at;
+// 	}
+// });
+// ====================================================================================
+// find out through another table where the user is from
+// can do it through has many relationships 
+// a has many through relationship
+// |--------------------------------------------------------------------------
+Route::get('/user/country', function() {
+	$country = Country::find(2);
+	foreach ($country->posts as $post) {
+		return $post->content;
+	}
 });
+
+
+
+
+
+
+
 
 
 // |--------------------------------------------------------------------------
