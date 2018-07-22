@@ -1,5 +1,6 @@
 <?php
 // import class functionality classes and also the parent classes
+use App\Tag;
 use App\Photo;
 use App\Country;
 use App\Post;
@@ -110,15 +111,36 @@ use App\User;
 // 	}
 // });
 // ====================================================================================
-// find who the photo owner by id is
+// find who the photo owner by id is - Polymorphic relationships
 // |--------------------------------------------------------------------------
 // Route::get('/photo/{id}/post', function($id) {
 // 	// throws 404 error if something fails
 // 	$photo = Photo::findOrFail($id);
 // 	return $photo->imageable;
 // });
+// ====================================================================================
+// many to many polymorphic relationships! 
+// |--------------------------------------------------------------------------
+// Route::get('/post/tag', function() {
 
+// 	$post = Post::find(1);
 
+// 	foreach ($post->tags as $tag) {
+// 		echo $tag->name;
+// 	}
+// });
+// ====================================================================================
+// find who the owner by id is - Many to Many Polymorphic relationships
+// |--------------------------------------------------------------------------
+// Route::get('/tag/post', function() {
+// 	$tag = Tag::find(2);
+// 	foreach ($tag->posts as $post) {
+// 		return $post->title;
+// 	}
+// });
+// ====================================================================================
+// 
+// |--------------------------------------------------------------------------
 
 
 
