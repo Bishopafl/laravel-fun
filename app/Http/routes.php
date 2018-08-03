@@ -139,10 +139,21 @@ use App\User;
 // 	}
 // });
 // ====================================================================================
-// 
+// find who the owner by id is - Many to Many Polymorphic relationships
 // |--------------------------------------------------------------------------
-
-
+// Route::get('/tag/post', function() {
+// 	$tag = Tag::find(2);
+// 	foreach ($tag->posts as $post) {
+// 		return $post;
+// 	}
+// });
+// ====================================================================================
+// tinker - do CRUD in database using this tool in the terminal without using routes
+// or the browser!
+// you can create objects and assign values to them via the terminal using tinker
+// it's pretty interesting to use. 
+// instatiate using -> php artisan tinker && end it with exit
+// |--------------------------------------------------------------------------
 
 
 
